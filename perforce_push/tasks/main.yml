@@ -1,0 +1,2 @@
+- name: code pushing to perforce/SCM
+  command: bash -lc "cd /export/home1/ansible/ && p4 info && p4 add infra && p4 opened "

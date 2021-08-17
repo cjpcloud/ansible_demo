@@ -1,0 +1,4 @@
+- name: Stop service httpd, if not running
+  service:
+      name: httpd24-httpd
+      state: stopped

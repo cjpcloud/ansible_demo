@@ -1,0 +1,32 @@
+- name: removing httpd
+  yum: name=httpd update_cache=yes state=absent
+- name: remove the php-common
+  yum: name=php-common update_cache=yes state=absent
+- name: download the httpd tar file
+  copy:
+    src: /export/home1/ansible/ansible/httpd-2.4.25.tar.gz
+    dest: /root/ansible
+- name: Unarchive a file that is already on the remote machine
+  unarchive:
+      src: /root/ansible/httpd-2.4.25.tar.gz
+      dest: /root/ansible
+      remote_src: yes
+- name: install the httpd dependency packages
+  yum: name=apr* update_cache=yes state=present
+  yum: name=gcc* update_cache=yes state=present
+  yum: name=pcre* update_cache=yes state=present
+- name: Install httpd
+  command: sudo {{ item }} chdir="/root/ansible/httpd-2.4.25"
+  with_items:
+       - ./configure --prefix=/usr/local/apache
+       - make
+       - make install
+
+- name: verify the apache version
+  shell:
+    chdir: /usr/local/apache/bin
+    cmd: ./apachectl -v
+- name: copy the httpd.service file to system
+  copy:
+    src: /export/home1/ansible/ansible/httpd.service
+    dest: /usr/lib/systemd/system

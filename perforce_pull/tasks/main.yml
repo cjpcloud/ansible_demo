@@ -1,0 +1,5 @@
+- name: code pulling from perforce/SCM
+  command: chdir="/export/home1/ansible/infra"
+  command: p4 info
+  command: p4 sync -n
+  command: p4 sync

@@ -1,0 +1,6 @@
+- name: backup of httpd configurations
+  shell: find /opt/rh/httpd24/root/etc/httpd/carelink-stage1.minimed_conf*>/opt/carelink-stage1.minimed_con
+- name: Fetch the file from the msplwb412 to master
+  run_once: yes
+  fetch: src=/opt/carelink-stage1.minimed_con dest=/export/home1/ansible/infra/ flat=yes
+  when: "{{ inventory_hostname == 'msplwb412' }}"
