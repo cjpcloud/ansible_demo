@@ -1,12 +1,1 @@
----
-- hosts: staging
-  become_method: sudo
-  become: yes
-  gather_facts: false
-  roles:
-     - apache_install
-     - apache_start
-     - apache_stop
-     - perforce_pull
-     - perforce_push
-     - backup
+GYEGW	YTEUT
