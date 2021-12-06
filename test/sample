@@ -1,0 +1,26 @@
+./cluster-admin
+./cluster-admin/test
+./cluster-admin/test/ap
+./cluster-admin/test/ap/telengana
+./cluster-admin/test/ap/telengana/guntur
+./ClusterRole
+./ClusterRoleBinding
+./eks-admin
+./environment
+./environment/grafana
+./kind:
+./kube-system
+./rbac.authorization.k8s.io
+./rbac.authorization.k8s.io/v1beta1
+./ServiceAccount
+./snap
+./snap/amazon-ssm-agent
+./snap/amazon-ssm-agent/4046
+./snap/amazon-ssm-agent/common
+./snap/amazon-ssm-agent/current -> 4046
+./snap/helm
+./snap/helm/353
+./snap/helm/common
+./snap/helm/current -> 353
+./v1
+
